@@ -1,0 +1,50 @@
+{% extends 'admin-base.html.twig' %}
+{% block title %}
+    {{ 'tag.site_name.admin_tag'|trans({}, 'controller') }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            {% include ':Template:flashMsg.html.twig' %}
+            <h2>{{ 'tag.site_name.admin_tag'|trans({}, 'controller') }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            {#<form class="form-inline" action="{{ path('admin_search_tag') }}">#}
+                {#<input class="form-control mr-sm-2" name="search" type="text" value="{{ searchParam is defined ? searchParam : '' }}" placeholder="{{ 'tag.action.search'|trans({}, 'controller') }}">#}
+                {#<button class="btn btn-success" type="submit">{{ 'tag.action.search'|trans({}, 'controller') }}</button>#}
+            {#</form>#}
+            {{ render(controller('AppBundle:Tag:searchForm')) }}
+        </div>
+        <div class="col-lg-6">
+            <a href="{{ path('tag_create') }}" class="btn btn-primary float-right">Create new category</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-12 text-center">
+            <div class="table-responsive-sm">
+                <table class="table">
+                    <thead>
+                    <th>{{ knp_pagination_sortable(tagAdmin, 'tag.id'|trans({},'entity'), 'id') }}</th>
+                    <th>{{ knp_pagination_sortable(tagAdmin, 'tag.name'|trans({},'entity'), 'name') }}</th>
+                    <th>{{ 'edit'|trans({}, 'controller') }}</th>
+                    <th>{{ 'delete'|trans({}, 'controller') }}</th>
+                    </thead>
+                    <tbody>
+                    {% for tag in tagAdmin %}
+                        <tr>
+                            <td>{{ tag.id }}</td>
+                            <td>{{ tag.name }}</td>
+                            <td><a href="{{ path('tag_edit', {'id': tag.id}) }}">{{ 'edit'|trans({}, 'controller') }}</a> </td>
+                            <td><a href="{{ path('delete_tag', {'id': tag.id}) }}">{{ 'delete'|trans({}, 'controller') }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {{ knp_pagination_render(tagAdmin) }}
+        </div>
+    </div>
+{% endblock %}

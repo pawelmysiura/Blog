@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ 'account.login'|trans({}, 'controller') }}
+{% endblock %}
+{% block top %}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div id="head-title">
+            <h1>{{ 'account.login'|trans({}, 'controller') }}</h1>
+            <div class="line"></div>
+        </div>
+        <div id="user">
+            <div class="content">
+                {% include ':Template:flashMsg.html.twig' %}
+                {% if loginError %}
+                    <div class="alert alert-danger">
+                        {{ loginError.message }}
+                    </div>
+                {% endif %}
+                <div class="row align-items-center vdivide login">
+                    <div class="col-lg-6">
+
+                        {#<form action="#" method="post">#}
+                        {#<div class="form-group">#}
+                        {#<label for="login">Login:</label>#}
+                        {#<input type="text" id="login" class="form-control" placeholder="login">#}
+                        {#</div>#}
+                        {#<div class="form-group">#}
+                        {#<label for="pass">Password:</label>#}
+                        {#<input type="password" id="pass" class="form-control">#}
+                        {#</div>#}
+                        {#<input type="submit" class="btn-primary btn float-sm-right">#}
+
+                        {#</form>#}
+
+                        {{ form(loginForm) }}
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <div>
+                            {{ 'account.register.question'|trans({}, 'controller') }}
+                            <p><a href="{{ path('blog_register') }}" class="btn btn-success">{{ 'account.register.button'|trans({}, 'controller') }}</a></p>
+                        </div>
+                        <hr>
+                        <div class="">
+                            {{ 'account.forgot_password.question'|trans({}, 'controller') }}
+                            <p><a href="{{ path('blog_forgot_passwd_email') }}" class="btn btn-primary">{{ 'account.forgot_password.button'|trans({}, 'controller') }}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

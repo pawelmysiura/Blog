@@ -1,0 +1,37 @@
+username: Username
+password: Password
+login:
+  remember: 'Remember Me'
+  button: 'Log in'
+register:
+  c_password: 'Confirm password'
+  email: Email
+  terms: 'Accept terms'
+  button: Register
+change_password:
+  curr_password: 'Current password'
+  new_password: 'New password'
+  repeat_password: 'Repeat password'
+  button: 'Change password'
+change_email:
+  new_email: 'New email'
+  button: 'Change email'
+forgot_password:
+  c_password: 'Confirm password'
+  email: Email
+  button: Send
+contact:
+  email: 'Your email'
+  subject: Subject
+  message: Message
+  button: Send
+create_category_tag:
+  name: Name
+  button: Create
+create_post:
+  title: Title
+  category: Category
+  tags: Tags
+  content: Content
+  publish: 'Publish date'
+  button: 'Create post'

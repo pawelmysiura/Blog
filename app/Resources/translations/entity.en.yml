@@ -1,0 +1,21 @@
+post:
+  id: ID
+  title: Title
+  author: Author
+  category: Category
+  category_null: none
+  create_date: Created date
+  published: Published
+  tags: Tags
+category:
+  id: ID
+  name: Name
+tag:
+  id: ID
+  name: Name
+user:
+  id: ID
+  username: Name
+  email: Email
+  register_date: 'Register date'
+

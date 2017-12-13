@@ -1,0 +1,111 @@
+edit: Edit
+delete: Delete
+post:
+  action:
+    new: 'Create new post'
+    search: 'Search post'
+  others:
+    null: NULL
+  site_name:
+    admin_post: 'Posts list'
+    new_post: 'Create post'
+    posts: Posts
+tag:
+  action:
+    new: 'Create new tag'
+    search: 'Search tag'
+  site_name:
+    admin_tag: 'Tags list'
+    new_tag: 'Create tag'
+category:
+  action:
+    new: 'Create new category'
+    search: 'Search category'
+  site_name:
+    admin_category: 'Categories list'
+    new_category: 'Create category'
+user:
+  action:
+    search: 'Search user'
+    disable: Disable
+    enable: Enable
+    active: Active
+  site_name:
+    admin_user: 'Users list'
+default:
+  admin:
+    statistics: Statistics
+    published: 'Published posts'
+    unpublished: 'Unpublished posts'
+    tags: Tags
+    categories: Categories
+    users: Users
+    site_name: 'Admin panel'
+  index:
+    site_name: 'Main page'
+    lastes_posts: 'Latest posts'
+account:
+  login: 'Log in'
+  logout: 'Log out'
+  register:
+    button: 'Register'
+    question: "Don't have an account?"
+  forgot_password:
+    button: 'Forgot password'
+    question: 'Did you forget the password?'
+    site_name: 'Forgot password?'
+  settings:
+    menu:
+      account: Account
+      change_password: 'Change password'
+      change_email: 'Change email'
+    details:
+      site_name: Account
+      welcome: Hello
+      email: 'Your email'
+      posts: 'Your posts'
+contact:
+  site_name: Contact
+about:
+  site_name: 'Ablout us'
+menu:
+  front:
+    main: Home
+    posts: Posts
+    about: About
+    contact: Contact
+  admin:
+    main: Main
+    posts: Posts
+    categories: Categories
+    tags: Tags
+    users: Users
+base:
+  front:
+    title: ' | Blog'
+    buttons:
+      log_in: 'Log in'
+      sing_up: 'Sing up'
+      log_out: 'Log out'
+      admin_panel: 'Admin Panel'
+    jumbotron: 'Vivamus et bibendum ante. Nullam'
+    logged_as: 'You are logged as '
+    copyright: 'Copyright © 2017'
+  admin:
+    title: ' | Admin Panel'
+    panel_name: 'App Admin Panel'
+    front_page: 'Home page'
+template:
+  archive: Archive
+  published: 'Published at:'
+  read_more: 'Read more'
+mailer:
+  from: 'From:'
+  regards: 'Regards Admin'
+  app_blog: 'App Blog'
+  activation:
+    title: 'Activation link'
+    content: 'There is an activation link. If you haven not registered please ignore this emai'
+  forgot_password:
+    title: 'Changing password Link'
+    content: ' This is changing password lin k. If you haven not changing password please ignore this email'

@@ -1,0 +1,58 @@
+{% extends 'admin-base.html.twig' %}
+{% block title %}
+    {{ 'default.admin.site_name'|trans({},'controller') }}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+        <div class="col-lg-12 text-center">
+            <h2>{{ 'default.admin.statistics'|trans({},'controller') }}</h2>
+        </div>
+    </div>
+    <div class="row mx-auto">
+        <div class="col-lg-4 text-center ">
+            <div class="card" style="width:250px">
+                <h1 class="display-1">{{ postPublished }}</h1>
+                <div class="card-body bg-secondary">
+                    <a href="{{ path('admin_post') }}" class="text-white"><h4>{{ 'default.admin.published'|trans({},'controller') }}</h4></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center">
+            <div class="card" style="width:250px">
+                <h1 class="display-1">{{ postUnpublished }}</h1>
+                <div class="card-body bg-secondary">
+                    <a href="{{ path('admin_post') }}" class="text-white"><h4>{{ 'default.admin.unpublished'|trans({},'controller') }}</h4></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center">
+            <div class="card" style="width:250px">
+                <h1 class="display-1">{{ user }}</h1>
+                <div class="card-body bg-secondary">
+                    <a href="{{ path('admin_user') }}" class="text-white"><h4>{{ 'default.admin.users'|trans({},'controller') }}</h4></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 justify-content-center">
+        <div class="col-lg-4 text-center ">
+            <div class="card" style="width:250px">
+                <h1 class="display-1">{{ category }}</h1>
+                <div class="card-body bg-secondary">
+                    <a href="{{ path('admin_category') }}" class="text-white"><h4>{{ 'default.admin.categories'|trans({},'controller') }}</h4></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center">
+            <div class="card" style="width:250px">
+                <h1 class="display-1">{{ tag }}</h1>
+                <div class="card-body bg-secondary">
+                    <a href="{{ path('admin_tag') }}" class="text-white"><h4>{{ 'default.admin.tags'|trans({},'controller') }}</h4></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock  %}
+

@@ -1,0 +1,9 @@
+user:
+  not_found: 'User not found'
+  username_exist: 'Username already exist'
+404:
+  title: 'Error 404'
+  content: "Oops! Looks like the page doesn't exist."
+500:
+  title: 'Error 500'
+  content: 'Unexpected error! Please try again.'

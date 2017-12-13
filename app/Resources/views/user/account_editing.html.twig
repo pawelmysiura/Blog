@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="register">
+        <div id="head-title">
+            <h1>{{ title }}</h1>
+            <div class="line"></div>
+        </div>
+        <div>
+            {% include ':Template:flashMsg.html.twig' %}
+        </div>
+        <div class="row vdivide ">
+
+            <div class="col-lg-3">
+                <h3>{{ user.username }}</h3>
+                {{ print_account_menu() }}
+            </div>
+            <div class="col-lg-6">
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

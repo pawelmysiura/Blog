@@ -1,0 +1,10 @@
+{% for success in app.session.flashBag.get('success', [])  %}
+<div class="alert alert-success">
+    {{ success }}
+</div>
+{% endfor %}
+{% for error in app.session.flashBag.get('error', [])  %}
+    <div class="alert alert-danger">
+        {{ error }}
+    </div>
+{% endfor %}

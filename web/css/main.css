@@ -1,0 +1,132 @@
+
+.jumbotron {
+    background-image: url("../img/jumbotron.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 20rem;
+    width: 100%;
+}
+#page .jumbotron {
+    background-image: url("../img/page.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+.line {
+    background:  #007bff;
+    padding: 0.1rem;
+}
+#bottom {
+    margin-top: 1rem;
+}
+#bottom nav {
+    text-align: center;
+}
+#bottom nav li {
+    display: inline-block;
+    float: none;
+    padding: 0.5rem;
+}
+#bottom nav li a{
+    color: rgba(0, 0, 0, 0.85);
+}
+#bottom nav li a:hover{
+    color: rgba(0, 0, 0, 0.62);
+    text-decoration: none;
+}
+#bottom nav ul {
+    text-align: center;
+    margin-bottom: auto;
+
+}
+#bottom {
+    background: lightgray;
+}
+
+#bottom footer{
+    font-size: 75%;
+
+}
+.copyright {
+    padding: 1rem;
+    margin-left: 21rem;
+    color: lightgray;
+}
+
+#news .line{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+#head-title .line {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
+}
+.news-title {
+    font-size: x-large;
+}
+#news footer {
+    font-size: small;
+    padding:0.75rem;
+}
+.archive {
+    background-color: whitesmoke;
+    background-image:none;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+.archive ul {
+    list-style-type: none;
+    text-align: left;
+}
+.archive li a{
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+.archive li a:hover{
+    color: grey;
+    text-decoration: none;
+}
+.archive-content {
+    padding:1rem;
+}
+#user .login {
+    padding: 10rem;
+}
+.vdivide [class*='col-']:not(:last-child):after {
+    background: #e0e0e0;
+    width: 1px;
+    content: "";
+    display:block;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    right: 0;
+    min-height: 70px;
+}
+
+#register .col-lg-6 {
+    padding: 5rem;
+}
+#register button {
+    margin-top: 1rem;
+    float: right;
+}
+#forgot {
+    padding-top: 10rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+body,html{
+    height:100%;
+}
+.container{
+    min-height:100%;
+}
+.footer{
+    height:40px;
+    margin-top:-40px;
+}
+

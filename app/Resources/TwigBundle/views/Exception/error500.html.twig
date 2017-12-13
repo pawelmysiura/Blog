@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ '500.title'|trans({},'exception') }}
+{% endblock %}
+{% block top %}
+{% endblock %}
+    {% block content %}
+        <div class="text-center">
+        <h1 class="display-1">
+            {{ '500.title'|trans({},'exception') }}
+        </h1>
+        <h1 class="display-4">
+            {{ '500.content'|trans({},'exception') }}
+        </h1>
+        </div>
+    {% endblock %}
+{% block footer %}
+{% endblock %}

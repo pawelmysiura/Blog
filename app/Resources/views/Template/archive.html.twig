@@ -1,0 +1,11 @@
+<div class="archive">
+    <h2>{{ 'template.archive'|trans({},'controller') }}</h2>
+    <div class="line"></div>
+    <div class="archive-content">
+        <ul>
+{% for key, value in months|reverse %}
+                <li><a href="{{ path('blog_archive', {year: key|date('Y'), month: key|date('m')}) }}">{{ key|date('Y F') }}</a> </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

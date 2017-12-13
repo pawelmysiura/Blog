@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{{ 'default.index.site_name'|trans({}, 'controller') }}
+{% endblock %}
+{% block top %}
+<div class="jumbotron text-center text-white">
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <hr class="col-3">
+    <p><h3>Log in to see more</h3>
+    <a class="btn btn-primary" href="{{ path('login') }}">{{ 'account.login'|trans({}, 'controller') }}</a>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container">
+<div class="content">
+    <div class="row">
+        <div class="col">
+            <h2  class="text-center">{{ 'default.index.lastes_posts'|trans({}, 'controller') }}</h2>
+            <hr>
+        </div>
+    </div>
+    {{ print_last_post() }}
+    {#<div class="row">#}
+        {#<div class="col-lg-4">#}
+            {#<article>#}
+                {#<h3>#}
+                    {#Nullam porttitor diam ut ante.#}
+                {#</h3>#}
+                {#<p>#}
+                    {#Nulla dignissim justo a urna dictum, at maximus dui venenatis. Sed eget aliquam risus. Integer imperdiet porttitor hendrerit. Ut quis varius massa, vestibulum volutpat sapien. Proin quis ligula maximus, hendrerit lectus a, volutpat leo. Fusce eget congue erat. Maecenas id hendrerit tortor, vel convallis leo. Aliquam erat volutpat. Sed molest#}
+                {#</p>#}
+                {#<hr>#}
+                {#<div class="float-sm-left">#}
+                    {#Dodano: 11.09.2017#}
+                {#</div>#}
+                {#<a href="#" class="btn btn-info float-sm-right">Czytaj więcej</a>#}
+            {#</article>#}
+        {#</div>#}
+        {#<div class="col-lg-4">#}
+            {#<article>#}
+                {#<h3>#}
+                    {#Nullam porttitor diam ut ante.#}
+                {#</h3>#}
+                {#<p>#}
+                    {#Nulla dignissim justo a urna dictum, at maximus dui venenatis. Sed eget aliquam risus. Integer imperdiet porttitor hendrerit. Ut quis varius massa, vestibulum volutpat sapien. Proin quis ligula maximus, hendrerit lectus a, volutpat leo. Fusce eget congue erat. Maecenas id hendrerit tortor, vel convallis leo. Aliquam erat volutpat. Sed molest#}
+                {#</p>#}
+                {#<hr>#}
+                {#<div class="float-sm-left">#}
+                    {#Dodano: 29.09.2017#}
+                {#</div>#}
+                {#<a href="#" class="btn btn-info float-sm-right">Czytaj więcej</a>#}
+            {#</article>#}
+        {#</div>#}
+        {#<div class="col-lg-4">#}
+            {#<article>#}
+                {#<h3>#}
+                    {#Nullam porttitor diam ut ante.#}
+                {#</h3>#}
+                {#<p>#}
+                    {#Nulla dignissim justo a urna dictum, at maximus dui venenatis. Sed eget aliquam risus. Integer imperdiet porttitor hendrerit. Ut quis varius massa, vestibulum volutpat sapien. Proin quis ligula maximus, hendrerit lectus a, volutpat leo. Fusce eget congue erat. Maecenas id hendrerit tortor, vel convallis leo. Aliquam erat volutpat. Sed molest#}
+                {#</p>#}
+                {#<hr>#}
+                {#<div class="float-sm-left">#}
+                    {#Dodano: 10.10.2017#}
+                {#</div>#}
+                {#<a href="#" class="btn btn-info float-sm-right">Czytaj więcej</a>#}
+            {#</article>#}
+        {#</div>#}
+    {#</div>#}
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <img src="{{ asset('img/pizza.jpg') }}" class="img-thumbnail"  width="304" height="236">
+        </div>
+        <div class="col-lg-9">
+            Nulla condimentum eleifend maximus. Morbi sagittis, massa in commodo iaculis, nibh felis consequat diam, sed bibendum lectus enim eu augue. Donec mattis gravida orci, nec porta ligula ultrices id. In.
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-9">
+            Nulla condimentum eleifend maximus. Morbi sagittis, massa in commodo iaculis, nibh felis consequat diam, sed bibendum lectus enim eu augue. Donec mattis gravida orci, nec porta ligula ultrices id. In.
+        </div>
+        <div class="col-lg-3">
+            <img src="{{ asset('img/chess.jpg') }}" class="img-fluid"  width="304" height="236">
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

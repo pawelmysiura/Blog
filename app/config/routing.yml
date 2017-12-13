@@ -1,0 +1,26 @@
+app_logout:
+    path: /logout
+
+app_tag:
+    resource: '@AppBundle/Controller/TagController.php'
+    type: annotation
+
+app_catgegory:
+    resource: '@AppBundle/Controller/CategoryController.php'
+    type: annotation
+
+app_security:
+    resource: '@AppBundle/Controller/SecurityController.php'
+    type: annotation
+
+app_user:
+    resource: '@AppBundle/Controller/UserController.php'
+    type: annotation
+
+app_defalut:
+    resource: '@AppBundle/Controller/DefaultController.php'
+    type: annotation
+
+app_posts:
+    resource: '@AppBundle/Controller/PostController.php'
+    type: annotation

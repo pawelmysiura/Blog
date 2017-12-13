@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ 'account.settings.details.site_name'|trans({},'controller') }}
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="register">
+        <div id="head-title">
+            <h1>{{ 'account.settings.details.site_name'|trans({},'controller') }}</h1>
+            <div class="line"></div>
+        </div>
+        <div class="row vdivide ">
+            <div class="col-lg-3">
+                <h3>{{ user.username }}</h3>
+                {{ print_account_menu() }}
+            </div>
+            <div class="col-lg-9s ml-3">
+                <div>
+                    <h2>{{ 'account.settings.details.welcome'|trans({},'controller') }} {{ user.username }}!</h2>
+                </div>
+                <p>{{ 'account.settings.details.email'|trans({},'controller') }} {{ user.email }}</p>
+            </div>
+        </div>
+        <div class="row vdivide">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-9 table-responsive-sm">
+                <h4>{{ 'account.settings.details.posts'|trans({},'controller') }}</h4>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>{{ 'post.title'|trans({},'entity') }}</th>
+                        <th>{{ 'post.category'|trans({},'entity') }}</th>
+                        <th>{{ 'post.published'|trans({},'entity') }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for post in pagination %}
+                        <tr>
+                            <td><a class="text-dark"
+                                   href="{{ path('blog_post', {'slug': post.slug}) }}">{{ post.title }}</a></td>
+                            {% if post.category is null %}
+                                <td>{{ 'post.category_null'|trans({},'entity') }}</td>
+                                {% else %}
+                            <td>{{ post.category.name }}</td>
+                                    {% endif %}
+                            <td>{{ post.publishedDate|date('Y-m-d H:i:s') }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

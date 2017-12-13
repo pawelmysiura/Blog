@@ -1,0 +1,30 @@
+success:
+  post:
+    found: 'Post found'
+    edit: 'Post has been edited'
+    create: 'New post has been created'
+    delete: 'Deleted successfully'
+  category:
+    delete: 'Category deleted successfully'
+    edit: 'Category has been edited'
+    create: 'You have created new category'
+  tag:
+    delete: 'Tag deleted successfully'
+    edit: 'Tag has been edited'
+    create: 'You have created new tag'
+  user:
+    active: 'Action success'
+    email: 'Email has been changed'
+    password: 'Password has been changed'
+  default:
+    send: 'The message has been sent'
+  security:
+    register: 'A confirmation email with further instructions has been sent to your email address.'
+    activation: 'Now you can log in.'
+    forgotPassword: 'Further instructions has been sent to your email adress.'
+    activePassword: 'Now you can log in.'
+fail:
+  post:
+    not_found: 'Post not found'
+  category:
+    edit: 'Please try again'

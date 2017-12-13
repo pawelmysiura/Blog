@@ -1,0 +1,10 @@
+{{ form_start(form, {
+    'attr': {'class': 'form-inline'}
+}) }}
+{{ form_widget(form.search, {
+    'attr': {'class': 'form-control mr-sm-2', 'placeholder': 'Search'}
+}) }}
+{{ form_widget(form.submit, {
+    'attr': {'class': 'btn btn-success'}
+}) }}
+{{ form_end(form) }}

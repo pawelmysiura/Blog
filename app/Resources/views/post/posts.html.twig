@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ 'post.site_name.posts'|trans({},'controller') }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div id="head-title">
+            <h1>{{ 'post.site_name.posts'|trans({},'controller') }}</h1>
+            <div class="line"></div>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div id="news">
+                        {% for post in pagination %}
+                            <div class="news-title">
+                                <a class="text-dark"
+                                   href="{{ path('blog_post', {'slug': post.slug}) }}">{{ post.title }}</a>
+                            </div>
+                            <div class="annotation">
+                                <footer>
+                                    <div class="float-sm-left ">
+                                        {{ 'post.author'|trans({},'entity') }}
+                                        : {{ post.author.username }} {{ 'post.category'|trans({},'entity') }}
+                                        : {% if post.category is null %} {{ 'post.category_null'|trans({},'entity') }} {% else %}
+                                            <a class="text-muted"
+                                               href="{{ path('blog_category', {'slug': post.category.slug}) }}">{{ post.category.name }}</a>{% endif %}
+                                        {{ 'post.tags'|trans({},'entity') }}:
+                                        {% for tag in post.tags %}
+                                            <a class="text-muted"
+                                               href="{{ path('blog_tags', {'slug': tag.slug}) }}">{{ tag.name }}</a>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="float-sm-right">
+                                        {{ post.publishedDate|date('Y.n.d, H:m') }}
+                                    </div>
+                                </footer>
+                            </div>
+                            <div class="line">
+                            </div>
+                            <article>
+                                {{ post.content|length > 600 ? post.content|slice(0, 600) ~ '...' :  post.content }}
+                            </article>
+                            <hr>
+                        {% endfor %}
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    {{ print_archive() }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

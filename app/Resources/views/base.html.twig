@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}{{ 'base.front.title'|trans({},'controller') }}</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block stylesheet %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    {% stylesheets
+    'css/bootstrap.min.css'
+    'css/main.css'
+    filter='cssrewrite,?uglifycss'
+    output='css/compiled.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    {% endblock %}
+</head>
+<body>
+<div class="line">
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            {{ print_main_menu() }}
+            {#<ul class="navbar-nav">#}
+            {#<li class="nav-item active">#}
+            {#<a class="nav-link" href="{{ path('blog_index') }}">Home</a>#}
+            {#</li>#}
+            {#<li class="nav-item">#}
+            {#<a class="nav-link" href="{{ path('blog_news') }}">News</a>#}
+            {#</li>#}
+            {#<li class="nav-item">#}
+            {#<a class="nav-link" href="{{ path('blog_about') }}">About</a>#}
+            {#</li>#}
+            {#<li class="nav-item ">#}
+            {#<a class="nav-link" href="{{ path('blog_contact') }}">Contact</a>#}
+            {#</li>#}
+            {#</ul>#}
+            {% if  app.user %}
+                <div class="ml-lg-auto">
+                    <span>{{ 'base.front.logged_as'|trans({},'controller') }}<a href="{{ path('account_settings') }}">{{ app.user.username }}</a></span>
+                    {% if is_granted('ROLE_EDITOR') == true %}
+                        <a href="{{ path('admin_panel') }}" class="btn-outline-success btn">{{ 'base.front.buttons.admin_panel'|trans({},'controller') }}</a>
+                    {% endif %}
+                    <a href="{{ path('app_logout') }}" class="btn-outline-primary btn">{{ 'base.front.buttons.log_out'|trans({},'controller') }}</a>
+                </div>
+            {% else %}
+                <div class="ml-lg-auto">
+                    <a href="{{ path('blog_register') }}" class="btn-outline-primary btn">{{ 'base.front.buttons.sing_up'|trans({},'controller') }}</a>
+                    <a href="{{ path('login') }}" class="btn-outline-primary btn">{{ 'base.front.buttons.log_in'|trans({},'controller') }}</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+{% block top %}
+    <div id="page">
+        <div class="jumbotron text-center text-white">
+            <p>
+            <h3>{{ 'base.front.jumbotron'|trans({},'controller') }}</h3>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block footer %}
+<div id="bottom">
+    <nav>
+        <ul>
+            <li><a href="{{ path('blog_index') }}">{{ 'menu.front.main'|trans({},'controller') }}</a></li>
+            <li><a href="{{ path('blog_news') }}">{{ 'menu.front.posts'|trans({},'controller') }}</a></li>
+            <li><a href="{{ path('blog_about') }}">{{ 'menu.front.about'|trans({},'controller') }}</a></li>
+            <li><a href="{{ path('blog_contact') }}">{{ 'menu.front.contact'|trans({},'controller') }}</a></li>
+        </ul>
+    </nav>
+    <div class="line">
+    </div>
+    <footer class="bg-dark">
+        <div class="copyright">
+            {{ 'base.front.copyright'|trans({},'controller') }}
+        </div>
+    </footer>
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+</html>
+{% endblock %}

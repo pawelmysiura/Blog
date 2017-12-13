@@ -1,0 +1,25 @@
+<div class="row vdivide">
+    {% for post in lastpost %}
+    <div class="col-lg-4">
+
+            <h3>
+                {{ post.title }}
+            </h3>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row vdivide">
+        {% for post in lastpost %}
+            <div class="col-lg-4">
+                <hr>
+            <p>
+                {{ post.content|slice(0, 250) ~ '...' }}
+            </p>
+            <hr>
+            <div class="float-sm-left ">
+                {{ 'template.published'|trans({},'controller') }} {{ post.publishedDate|date('Y.m.d') }}
+            </div>
+            <a href="{{ path('blog_post', {'slug':post.slug}) }}" class="btn btn-info float-sm-right">{{ 'template.read_more'|trans({},'controller') }}</a>
+    </div>
+    {% endfor %}
+</div>

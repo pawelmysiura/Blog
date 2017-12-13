@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ 'account.forgot_password.site_name'|trans({},'controller') }}
+{% endblock %}
+{% block top %}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div id="head-title">
+            <h1>{{ 'account.forgot_password.site_name'|trans({},'controller') }}</h1>
+            <div class="line"></div>
+        </div>
+            {% include ':Template:flashMsg.html.twig' %}
+        <div class="row vdivide ">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-6" id="forgot">
+                {% if activeTooken is not defined %}
+                {{ form(ForgotPasswdEmailForm) }}
+                    {% else %}
+                    {{ form(forgotPasswdForm) }}
+                    {% endif %}
+
+
+            </div>
+            <div class="col-lg-3">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

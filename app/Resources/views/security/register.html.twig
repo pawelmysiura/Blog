@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+Register
+{% endblock %}
+{% block top %}
+{% endblock %}
+{% block content %}
+<div class="container" id="register">
+    {% include ':Template:flashMsg.html.twig' %}
+<div id="head-title">
+    <h1>Register</h1>
+    <div class="line"></div>
+</div>
+    <div class="row vdivide">
+        <div class="col-lg-3">
+        </div>
+    <div class="col-lg-6">
+        {#<form action="#" method="post">#}
+            {#<div class="form-row">#}
+                {#<label for="login">Login</label>#}
+                {#<input type="text" id="login" class="form-control">#}
+            {#</div>#}
+            {#<div class="form-row">#}
+                {#<label for="pass">Password</label>#}
+                {#<input type="password" id="pass" class="form-control">#}
+            {#</div>#}
+            {#<div class="form-row">#}
+                {#<label for="passcmf">Confirm password</label>#}
+                {#<input type="password" id="passcmf" class="form-control">#}
+            {#</div>#}
+            {#<div class="form-row">#}
+                {#<label for="email">E-mail</label>#}
+                {#<input type="email" id="email" class="form-control">#}
+            {#</div>#}
+
+                {#<button class="btn btn-primary ">Register</button>#}
+        {#</form>#}
+
+        {{ form(registerForm) }}
+
+    </div>
+        <div class="col-lg-3">
+
+        </div>
+    </div>
+</div>
+{% endblock %}

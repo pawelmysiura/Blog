@@ -1,0 +1,68 @@
+{% extends 'admin-base.html.twig' %}
+{% block title %}
+    {{ 'post.site_name.admin_post'|trans({}, 'controller') }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            {% include ':Template:flashMsg.html.twig' %}
+            <h2>{{ 'post.site_name.admin_post'|trans({}, 'controller') }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            {#<form class="form-inline" action="{{ path('admin_search') }}">#}
+                {#<input class="form-control mr-sm-2" name="search" type="text" value="{{ searchParam is defined ? searchParam : '' }}" placeholder="{{ 'post.action.search'|trans({}, 'controller') }}">#}
+                {#<button class="btn btn-success" type="submit">{{ 'post.action.search'|trans({}, 'controller') }}</button>#}
+            {#</form>#}
+            {{ render(controller('AppBundle:Post:searchForm')) }}
+        </div>
+        <div class="col-lg-6">
+            <a href="{{ path('post_create') }}" class="btn btn-primary float-right">{{ 'post.action.new'|trans({},'controller') }}</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-12 text-center">
+            <div class="table-responsive-sm">
+                <table class="table">
+                    <thead>
+                    <th>{{ knp_pagination_sortable(postAdmin, 'post.id'|trans({},'entity'), 'p.id') }}</th>
+                    <th>{{ knp_pagination_sortable(postAdmin, 'post.title'|trans({}, 'entity'), 'p.title') }}</th>
+                    <th>{{ knp_pagination_sortable(postAdmin, 'post.author'|trans({}, 'entity'), 'a.id') }}</th>
+                    <th>{{ knp_pagination_sortable(postAdmin, 'post.category'|trans({}, 'entity'), 'c.id') }}</th>
+                    <th>{{ knp_pagination_sortable(postAdmin, 'post.create_date'|trans({}, 'entity'), 'p.createDate') }}</th>
+                    <th>{{ knp_pagination_sortable(postAdmin, 'post.published'|trans({}, 'entity'), 'p.publishedDate') }}</th>
+                    <th>{{ 'edit'|trans({}, 'controller') }}</th>
+                    <th>{{ 'delete'|trans({}, 'controller') }}</th>
+                    </thead>
+                    <tbody>
+                    {% for post in postAdmin %}
+                        <tr>
+                            <td>{{ post.id }}</td>
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.author.username }}</td>
+                            {% if post.category is null %}
+                            <td>{{ 'post.others.null'|trans({}, 'controller') }}</td>
+                            {% else %}
+                            <td>{{ post.category.name }}</td>
+                            {% endif %}
+                            <td>{{ post.createDate|date('Y.m.d, H:g:s') }}</td>
+                            {% if post.publishedDate == null %}
+                                <td>{{ 'post.others.null'|trans({}, 'controller') }}</td>
+                            {% else %}
+                                <td>{{ post.publishedDate|date('Y.m.d, H:g:s') }}</td>
+                            {% endif %}
+                            <td><a href="{{ path('post_edit', {'id': post.id}) }}">{{ 'edit'|trans({}, 'controller') }}</a> </td>
+                            <td><a href="{{ path('delete_post', {'id': post.id}) }}">{{ 'delete'|trans({}, 'controller') }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {{ knp_pagination_render(postAdmin) }}
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'admin-base.html.twig' %}
+{% block title %}
+    {{ 'category.site_name.admin_category'|trans({}, 'controller') }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            {% include ':Template:flashMsg.html.twig' %}
+            <h2>{{ 'category.site_name.admin_category'|trans({}, 'controller') }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            {#<form class="form-inline" action="{{ path('admin_search_category') }}">#}
+                {#<input class="form-control mr-sm-2" name="search" type="text" value="{{ searchParam is defined ? searchParam : '' }}" placeholder="{{ 'category.action.search'|trans({}, 'controller') }}">#}
+                {#<button class="btn btn-success" type="submit">{{ 'category.action.search'|trans({}, 'controller') }}</button>#}
+            {#</form>#}
+            {{ render(controller('AppBundle:Category:searchForm')) }}
+        </div>
+        <div class="col-lg-6">
+            <a href="{{ path('category_create') }}" class="btn btn-primary float-right">{{ 'category.action.new'|trans({}, 'controller') }}</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-12 text-center">
+            <div class="table-responsive-sm">
+                <table class="table">
+                    <thead>
+                    <th>{{ knp_pagination_sortable(categoryAdmin, 'category.id'|trans({},'entity'), 'id') }}</th>
+                    <th>{{ knp_pagination_sortable(categoryAdmin, 'category.name'|trans({},'entity'), 'name') }}</th>
+                    <th>{{ 'edit'|trans({}, 'controller') }}</th>
+                    <th>{{ 'delete'|trans({}, 'controller') }}</th>
+                    </thead>
+                    <tbody>
+                    {% for category in categoryAdmin %}
+                        <tr>
+                            <td>{{ category.id }}</td>
+                            <td>{{ category.name }}</td>
+                            <td><a href="{{ path('category_edit', {'id': category.id}) }}">{{ 'edit'|trans({}, 'controller') }}</a> </td>
+                            <td><a href="{{ path('delete_category', {'id': category.id}) }}">{{ 'delete'|trans({}, 'controller') }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {{ knp_pagination_render(categoryAdmin) }}
+        </div>
+    </div>
+{% endblock %}
