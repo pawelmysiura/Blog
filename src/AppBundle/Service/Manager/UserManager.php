@@ -5,13 +5,11 @@ namespace AppBundle\Service\Manager;
 
 use AppBundle\Entity\User;
 use AppBundle\Exception\UserException;
-use AppBundle\Service\Mailer\UserMailer;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
-use Doctrine\Bundle\DoctrineBundle\Registry as doctrine;
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Symfony\Component\Templating\EngineInterface as template;
-use Symfony\Component\Translation\Translator;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Doctrine\Common\Persistence\ManagerRegistry as doctrine;
+use Symfony\Component\Translation\TranslatorInterface;
+use AppBundle\Service\Manager\EmailManager;
 
 class UserManager
 {
@@ -21,46 +19,33 @@ class UserManager
     private $doctrine;
 
     /**
-     * @var UserPasswordEncoder
+     * @var UserPasswordEncoderInterface
      */
     private $encoder;
 
     /**
-     * @var Router
-     */
-    private $router;
-
-    /**
-     * @var template
-     */
-    private $template;
-
-    /**
-     * @var UserMailer
-     */
-    private $userMailer;
-
-    /**
-     * @var Translator
+     * @var TranslatorInterface
      */
     private $translator;
+
+    /**
+     * @var EmailManager
+     */
+    private $emailManager;
+
     /**
      * UserManager constructor.
      * @param doctrine $doctrine
-     * @param UserPasswordEncoder $encoder
-     * @param Router $router
-     * @param template $template
-     * @param UserMailer $userMailer
-     * @param Translator $translator
+     * @param UserPasswordEncoderInterface $encoder
+     * @param TranslatorInterface $translator
+     * @param \AppBundle\Service\Manager\EmailManager $emailManager
      */
-    public function __construct(doctrine $doctrine, UserPasswordEncoder $encoder, Router $router, template $template, UserMailer $userMailer, Translator $translator)
+    public function __construct(doctrine $doctrine, UserPasswordEncoderInterface $encoder, TranslatorInterface $translator, EmailManager $emailManager)
     {
         $this->doctrine = $doctrine;
         $this->encoder = $encoder;
-        $this->router = $router;
-        $this->template = $template;
-        $this->userMailer = $userMailer;
         $this->translator = $translator;
+        $this->emailManager = $emailManager;
     }
 
 
@@ -85,15 +70,8 @@ class UserManager
         $em = $this->doctrine->getManager();
         $em->persist($user);
         $em->flush();
+        $this->emailManager->registerMail($user, $user->getActiveToken());
 
-        $generatedUrl = $this->router->generate('blog_activeAccount', array(
-            'activeToken' => $user->getActiveToken()
-        ), UrlGeneratorInterface::ABSOLUTE_URL);
-        $bodyMail = $this->template->render(':email:activeAccount.html.twig', array(
-            'generatedUrl' => $generatedUrl
-        ));
-
-        $this->userMailer->userMailer($user, 'Activation link', $bodyMail);
     }
 
     public function activationManager($activeToken){
@@ -127,15 +105,7 @@ class UserManager
         $em->persist($user);
         $em->flush();
 
-        $generatedUrl = $this->router->generate('blog_forgot_passwd', array(
-            'activeToken' => $token
-        ), UrlGeneratorInterface::ABSOLUTE_URL);
-        $bodyMail = $this->template->render(':email:forgotPasswd.html.twig', array(
-            'generatedUrl' => $generatedUrl
-        ));
-
-        $this->userMailer->userMailer($user, 'Forgot password link', $bodyMail);
-        return true;
+        $this->emailManager->forgotPasswdMail($user, $token);
     }
 
     public function forgotPasswdManager(User $user, $activeToken, $plainPassword){
