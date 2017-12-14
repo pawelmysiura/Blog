@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="edab2f9f-0e51-461d-9a2e-24db248237c2" name="Default" comment="">
+    <list default="true" id="edab2f9f-0e51-461d-9a2e-24db248237c2" name="Default" comment="Update">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Service/Manager/EmailManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Exception/UserException.php" afterPath="$PROJECT_DIR$/src/AppBundle/Exception/UserException.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Service/Manager/UserManager.php" afterPath="$PROJECT_DIR$/src/AppBundle/Service/Manager/UserManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/AppBundle/Service/Manager/UserManagerTest.php" afterPath="$PROJECT_DIR$/tests/AppBundle/Service/Manager/UserManagerTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -654,12 +652,20 @@
       <workItem from="1513077019387" duration="14419000" />
       <workItem from="1513154521029" duration="15571000" />
       <workItem from="1513175574271" duration="6852000" />
-      <workItem from="1513242339665" duration="3959000" />
+      <workItem from="1513242339665" duration="4145000" />
     </task>
+    <task id="LOCAL-00001" summary="Update">
+      <created>1513246350651</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1513246350651</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="441019000" />
+    <option name="totallyTimeSpent" value="441205000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
