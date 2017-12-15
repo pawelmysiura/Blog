@@ -41,7 +41,7 @@ services:
 
     AppBundle\Services\Manage\UserManager:
         class: AppBundle\Service\Manager\UserManager
-        arguments: ['@doctrine', 'security.user_password_encoder.generic', '@translator.default', '@AppBundle\Service\Manager\EmailManager']
+        arguments: ['@doctrine', 'security.user_password_encoder.generic', '@translator.default', '@AppBundle\Service\Manager\EmailManager', '@AppBundle\Service\TokenGenerator']
 
     AppBundle\Service\Manager\AdminManager:
         class: AppBundle\Service\Manager\AdminManager
@@ -50,6 +50,9 @@ services:
     AppBundle\Service\Manager\EmailManager:
         class: AppBundle\Service\Manager\EmailManager
         arguments: ['@router', '@templating', '@AppBundle\Service\Mailer\UserMailer']
+
+    AppBundle\Service\TokenGenerator:
+        class: AppBundle\Service\TokenGenerator
 
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:

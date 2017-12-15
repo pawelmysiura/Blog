@@ -7,12 +7,12 @@ use AppBundle\Entity\Category;
 use AppBundle\Entity\Post;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\User;
-use Doctrine\Bundle\DoctrineBundle\Registry as doctrine;
+use Doctrine\Common\Persistence\ManagerRegistry as doctrine;
 
 class AdminManager
 {
     /**
-     * @var Doctrine
+     * @var doctrine
      */
     private $doctrine;
 

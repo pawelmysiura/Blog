@@ -48,6 +48,7 @@ class EmailManager
         ));
 
         $this->userMailer->userMailer($user, 'Activation link', $bodyMail);
+        return true;
     }
 
     public function forgotPasswdMail(User $user, $token){

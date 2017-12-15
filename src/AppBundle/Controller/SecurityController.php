@@ -148,7 +148,7 @@ class SecurityController extends Controller
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
 
-                $manager->forgotPasswdManager($user, $activeToken, $form->get('plainPassword')->getData());
+                $manager->forgotPasswdManager($user, $form->get('plainPassword')->getData());
                 $this->get('session')->getFlashBag()->add('success', $this->get('translator')->trans('success.security.activePassword', [],'message'));
 
                 return $this->redirectToRoute('login');
