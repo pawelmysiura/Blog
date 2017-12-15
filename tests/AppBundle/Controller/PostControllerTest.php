@@ -3,7 +3,6 @@
 namespace Tests\AppBundle\Controller;
 
 use AppBundle\Entity\Post;
-use AppBundle\Entity\Tag;
 use Symfony\Component\HttpFoundation\Response;
 
 class PostControllerTest extends BaseControllerTest

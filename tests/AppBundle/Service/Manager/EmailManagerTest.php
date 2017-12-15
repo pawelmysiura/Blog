@@ -4,25 +4,11 @@ namespace Tests\AppBundle\Service\Manager;
 
 
 use AppBundle\Entity\User;
-use AppBundle\Exception\UserException;
-use AppBundle\Repository\UserRepository;
 use AppBundle\Service\Mailer\UserMailer;
-use AppBundle\Service\Manager\AdminManager;
-use AppBundle\Service\Manager\UserManager;
-use AppBundle\Service\TokenGenerator;
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityRepository;
 use Liip\FunctionalTestBundle\Test\WebTestCase;
-use PHPUnit\Framework\TestCase;
-use PHPUnit\Runner\Exception;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use AppBundle\Service\Manager\EmailManager;
 use Symfony\Component\Templating\EngineInterface;
-use Symfony\Component\Translation\TranslatorInterface;
-use Doctrine\Common\Persistence\ManagerRegistry;
 
 class EmailManagerTest extends WebTestCase
 {

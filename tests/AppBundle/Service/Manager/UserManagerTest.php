@@ -4,14 +4,11 @@ namespace Tests\AppBundle\Service\Manager;
 
 
 use AppBundle\Entity\User;
-use AppBundle\Exception\UserException;
 use AppBundle\Service\Manager\UserManager;
 use AppBundle\Service\TokenGenerator;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
-use Doctrine\ORM\EntityManager;
 use Liip\FunctionalTestBundle\Test\WebTestCase;
-use PHPUnit\Framework\TestCase;
 use PHPUnit\Runner\Exception;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use AppBundle\Service\Manager\EmailManager;
